@@ -104,6 +104,9 @@ getconnexion();
                                     <h1> inscription</h1>
                                 </div>
 
+                                <input type="hidden" id="forminscription" name="forminscription" value="inscription"  class="form-control" />
+
+
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div data-mdb-input-init class="form-outline">

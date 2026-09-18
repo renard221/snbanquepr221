@@ -87,8 +87,11 @@
 
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form action="connexionController.php" method="post">
+                        <form action="authController.php" method="post">
                             <!-- 2 column grid layout with text inputs for the first and last names -->
+
+
+                            <input type="hidden" id="formconnexion" name="formconnexion" value="connexion"  class="form-control" />
 
                             <div class="row">
                                 <h1> Connexion</h1>

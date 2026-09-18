@@ -38,6 +38,4 @@ function connexion($email,$motdepasse){
     $statement = $db->prepare("select * from utilisateur where email=? and motdepasse=? ");
     $statement->execute(array($email,$motdepasse));
     return $statement->fetch();
-
-
 }
