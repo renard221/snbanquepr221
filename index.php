@@ -19,8 +19,8 @@
 
             </ul>
             <form class="d-flex" role="search">
-                <a class="btn btn-outline-primary" href="inscription.php">S'inscrire</a>&nbsp;
-                <a class="btn btn-outline-success" href="connexion.php">Se Connecter</a>
+                <a class="btn btn-outline-primary" href="view/inscription.php">S'inscrire</a>&nbsp;
+                <a class="btn btn-outline-success" href="view/connexion.php">Se Connecter</a>
             </form>
         </div>
     </div>

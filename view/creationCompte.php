@@ -1,8 +1,10 @@
 <?php
+require_once "../model/dao.php";
 session_start();
 if (!isset($_SESSION["connexion"])){
     header("location:connexion.php");
 }
+
 ?>
 
 
@@ -26,7 +28,7 @@ if (!isset($_SESSION["connexion"])){
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
             </ul>
-            <form action="authController.php" method="post" class="d-flex" role="search">
+            <form action="../controller/authController.php" method="post" class="d-flex" role="search">
                 <input type="hidden" id="fromdeconnexion" name="fromdeconnexion" value="deconnexion">
                 <button type="submit" class="btn btn-outline-danger" onclick="confirm('Voulez-vous vraiment vous deconnecter?')" >Deconnexion</button>
             </form>
@@ -36,35 +38,43 @@ if (!isset($_SESSION["connexion"])){
 
 <div class="container">
 
+    <div class="panel">
+        <div class="panel-heading">
+            Creation de compte
+        </div>
+        <br>
+        <div class="panel-body">
 
-<p style="font-size: 50px;">Veuillez creer votre compte <a href="">ici </a>  </p>
+            <form action="../controller/compteController.php" method="post">
 
-<div class="row" style="font-size: 30px;">
-    <div class="col-md-4"  >C. Numero: XXXXXXXX</div>
-    <div class="col-md-4">Type: Courant</div>
-    <div class="col-md-4">Solde: 10 000 000 FCFA</div>
-</div>
-<br>
+                <input type="hidden"  name="creationcompte" />
 
-<div class="row" style="font-size: 30px;">
-    <div class="col-md-4">Nb. transaction: 53</div>
-    <div class="col-md-4"> M.T. Retiré: 2 000 000 FCFA</div>
-    <div class="col-md-4"> M.T. Deposé: 12 000 000</div>
-</div>
-<br>
+                <div class="mb-3 ">
+                <label class="panel-heading">
+                    Type de Compte
+                </label>
+                <select class="form-select"  name="type" aria-label="Default select example">
+                    <option selected disabled>Choisir...</option>
+                    <option value="epargne">Epargne</option>
+                    <option value="courant">Courant</option>
+                </select>
+                <label class="panel-heading">
+                    Solde de base
+                </label>
+                <input type="number" class="form-control" name="solde" value="0" />
 
-<div class="row">
-    <div class="col-md-4">
-        <a href="" class="btn btn-primary btn-lg" >Depot</a>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Creer
+                </button>
+                <button type="reset" class="btn btn-default">
+                    Annuler
+                </button>
+            </form>
+        </div>
+
+
     </div>
-    <div class="col-md-4">
-        <a href="" class="btn btn-success btn-lg" >Retrait</a>
-    </div>
-    <div class="col-md-4">
-        <a href="" class="btn btn-warning btn-lg" >Transfert</a>
-
-    </div>
-</div>
 
 </div>
 

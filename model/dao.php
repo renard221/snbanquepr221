@@ -39,3 +39,33 @@ function connexion($email,$motdepasse){
     $statement->execute(array($email,$motdepasse));
     return $statement->fetch();
 }
+
+function getCompte($idu){
+    $db = getconnexion();
+    $statement = $db->prepare("select * from compte where idu = ? ");
+    $statement->execute(array($idu));
+    return $statement->fetch();
+}
+
+function getLastCompte(){
+    $db = getconnexion();
+    $statement = $db->prepare("select max(id) as id from compte ");
+    $statement->execute();
+    return $statement->fetch();
+}
+
+function addCompte($numero,$type,$solde,$idu){
+
+    $db = getconnexion();
+
+    //$db->query("insert into utilisateur values(null,$prenom,...)");
+    try {
+        $statement = $db->prepare("INSERT INTO compte values(null,?,?,?,?)");
+        $statement->execute(array($numero,$type,$solde,$idu));
+        return true;
+    }catch (Exception $e){
+        echo  $e->getMessage();
+        return false;
+    }
+
+}
